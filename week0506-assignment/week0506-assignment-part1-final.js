@@ -74,23 +74,23 @@ var outputMeetings = [];
     
     // time (hour, minute, AMorPM) at start and end
     objectMeetings.startHour = $(elem).contents().text().get(2).nodeValue.trim().split(":")[0];
-    // objectMeetings.startMinute = $(elem).parent().contents().get(2).nodeValue.trim().split(":")[1].slice(0, -3);
-    // objectMeetings.startAMPM = $(elem).parent().contents().get(2).nodeValue.trim().slice(-2);
-    // objectMeetings.endHour = $(elem).parent().contents().get(4).nodeValue.trim().split(":")[0];
-    // objectMeetings.endMinute = $(elem).parent().contents().get(4).nodeValue.trim().split(":")[1].slice(0, -3);
-    // objectMeetings.endAMPM = $(elem).parent().contents().get(4).nodeValue.trim().slice(-2);
+    objectMeetings.startMinute = $(elem).parent().contents().get(2).nodeValue.trim().split(":")[1].slice(0, -3);
+    objectMeetings.startAMPM = $(elem).parent().contents().get(2).nodeValue.trim().slice(-2);
+    objectMeetings.endHour = $(elem).parent().contents().get(4).nodeValue.trim().split(":")[0];
+    objectMeetings.endMinute = $(elem).parent().contents().get(4).nodeValue.trim().split(":")[1].slice(0, -3);
+    objectMeetings.endAMPM = $(elem).parent().contents().get(4).nodeValue.trim().slice(-2);
 
     outputMeetings.push(objectMeetings);
   });
 
 console.log(outputMeetings);
 
-// require('fs').writeFile(
-//     'week0506-assignment/m04addressarraywithoutlatLong.json',
-//     JSON.stringify(outputMeetings),
-//     function (err) {
-//         if (err) {
-//             console.error('error');
-//         }
-//     }
-// );
+require('fs').writeFile(
+    'week0506-assignment/m04addressarraywithoutlatLong.json',
+    JSON.stringify(outputMeetings),
+    function (err) {
+        if (err) {
+            console.error('error');
+        }
+    }
+);
