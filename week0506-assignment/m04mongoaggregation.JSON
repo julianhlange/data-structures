@@ -1,0 +1,128 @@
+[
+    {
+        "_id": "59db09f63c73ce4f36e19aeb",
+        "name": "42nd AT 9:00pm",
+        "location": "",
+        "address": "303 West 42nd Street, New York, NY",
+        "detail": "303 West 42nd Street, Room #404",
+        "directions": "between 8th & 9th Avenues",
+        "wheelchair": "no",
+        "notes": "Sat=A.A. Literature",
+        "day": "Tuesday",
+        "startHour": "9",
+        "startMinute": "15",
+        "startAMPM": "PM",
+        "endHour": "10",
+        "endMinute": "15",
+        "endAMPM": "PM",
+        "latLong": {
+            "lat": 40.7576553,
+            "lng": -73.9899274
+        }
+    },
+    {
+        "_id": "59db09f63c73ce4f36e19b16",
+        "name": "ANNEX (:II)",
+        "location": "GMHC",
+        "address": "446 West 33rd Street, New York, NY",
+        "detail": "446 West 33rd Street, 6th Floor, Room #6046",
+        "directions": "at 10th Avenue",
+        "wheelchair": "yes",
+        "notes": "Gay & Lesbian focus.  All are welcome.",
+        "day": "Tuesday",
+        "startHour": "8",
+        "startMinute": "00",
+        "startAMPM": "PM",
+        "endHour": "9",
+        "endMinute": "00",
+        "endAMPM": "PM",
+        "latLong": {
+            "lat": 40.7533175,
+            "lng": -73.9989001
+        }
+    },
+    {
+        "_id": "59db09f63c73ce4f36e19b17",
+        "name": "ARTISTS IN RECOVERY",
+        "location": "46th Street Clubhouse",
+        "address": "252 West 46th Street, New York, NY",
+        "detail": "252 West 46th Street, 3rd Floor",
+        "directions": "between 7th & 8th Avenues",
+        "wheelchair": "no",
+        "notes": "All are welcome.",
+        "day": "Tuesday",
+        "startHour": "9",
+        "startMinute": "15",
+        "startAMPM": "PM",
+        "endHour": "10",
+        "endMinute": "15",
+        "endAMPM": "PM",
+        "latLong": {
+            "lat": 40.7593263,
+            "lng": -73.98727389999999
+        }
+    },
+    {
+        "_id": "59db09f63c73ce4f36e19b4c",
+        "name": "FORTY-FIVE SOLUTIONS",
+        "location": "46th Street Club House",
+        "address": "252 West 46th Street, New York, NY",
+        "detail": "252 West 46th Street",
+        "directions": "between Broadway & 8th Avenue",
+        "wheelchair": "no",
+        "notes": "",
+        "day": "Tuesday",
+        "startHour": "10",
+        "startMinute": "30",
+        "startAMPM": "PM",
+        "endHour": "11",
+        "endMinute": "30",
+        "endAMPM": "PM",
+        "latLong": {
+            "lat": 40.7593263,
+            "lng": -73.98727389999999
+        }
+    },
+    {
+        "_id": "59db09f63c73ce4f36e19b56",
+        "name": "HENRY HUDSON",
+        "location": "",
+        "address": "303 West 42nd Street, New York, NY",
+        "detail": "303 West 42nd Street, 3rd Floor, Room #306",
+        "directions": "at corner of 8th Avenue",
+        "wheelchair": "no",
+        "notes": "",
+        "day": "Tuesday",
+        "startHour": "7",
+        "startMinute": "30",
+        "startAMPM": "PM",
+        "endHour": "8",
+        "endMinute": "30",
+        "endAMPM": "PM",
+        "latLong": {
+            "lat": 40.7576553,
+            "lng": -73.9899274
+        }
+    },
+    {
+        "_id": "59db09f63c73ce4f36e19b91",
+        "name": "POWERLESS",
+        "location": "Manhattan Plaza Health Club",
+        "address": "484 West 43rd Street, New York, NY",
+        "detail": "484 West 43rd Street, 1st Floor",
+        "directions": "at 43rd Street & 10th Avenue",
+        "wheelchair": "yes",
+        "notes": "Fri=Living Sober, Sat=Promises",
+        "day": "Tuesday",
+        "startHour": "7",
+        "startMinute": "00",
+        "startAMPM": "PM",
+        "endHour": "8",
+        "endMinute": "00",
+        "endAMPM": "PM",
+        "latLong": {
+            "lat": 40.759952,
+            "lng": -73.9947467
+        }
+    }
+]
