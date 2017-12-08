@@ -65,8 +65,14 @@ for (var i = 0; i < filenumber.length; i++) {
       objectMeetings.endHour = parseInt(endHour);
       objectMeetings.endMinute = meetingInfo.split(':')[2].slice(0, 2);
       objectMeetings.endAMPM = meetingInfo.split(':')[2].slice(3, 5);
-      if (objectMeetings.startAMPM == 'AM') {
+      if (objectMeetings.startAMPM == 'AM' && objectMeetings.startHour==12) {
+        objectMeetings.startHourMil = 0
+      }
+      else if (objectMeetings.startAMPM == 'AM' && objectMeetings.startHour<12) {
         objectMeetings.startHourMil = objectMeetings.startHour
+      }
+      else if (objectMeetings.startAMPM == 'PM' && objectMeetings.startHour==12) {
+        objectMeetings.startHourMil = 12
       }
       else { objectMeetings.startHourMil = objectMeetings.startHour + 12 }
 
