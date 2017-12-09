@@ -22,9 +22,9 @@ each sensor – how often the fridge door *transitions* from an "open" position 
 seemed very reliable. In contrast, the FSR sensor gave some inaccurate readings, so its data are a little dubious.
 
 ### The code is split into three parts
-* part1.ino: Flashed from the Particle App interface to the Particle device.
-* part2.js: Make request every 5 seconds to the Particle API to get sensor values, connect to AWS Postgres database, and insert values into sensor table.
-* part3.js: Code to receive user requests and aggregate data for each day, as described above.
+* part1.ino – Flashed from the Particle App interface to the Particle device.
+* part2.js – Make request every 5 seconds to the Particle API to get sensor values, connect to AWS Postgres database, and insert values into sensor table.
+* part3.js – Code to receive user requests and aggregate data for each day, as described above.
 
 The file part1.ino was flashed from the Particle App interface to the device. The file part2.js is running on EC2. The code in file part3.js was combined with the code in part4.js of final assignment 1 to make combined.js, which is on EC2.
 
@@ -35,13 +35,13 @@ The file part1.ino was flashed from the Particle App interface to the device. Th
 Given the sensor data in hand, I am using fridge closings as a proxy for "fridge opening" events.
 The PDF shows three layouts:
 * LANDING page
-* SENSOR 1 page: Bar chart of data collected with the Hall sensor
-* SENSOR 2 page: Bar chart of data collected with the FSR sensor
+* SENSOR 1 page – Bar chart of data collected with the Hall sensor
+* SENSOR 2 page – Bar chart of data collected with the FSR sensor
 
 The DEMO button on the Landing page would take the uer to the SENSOR 1 page.
 The 30 most recent days (i.e., the 30 last entries) would show in the bar charts. The user would be able to switch between the SENSOR 1 and SENSOR 2 pages by clicking at the top right.
 
-The following values would be pulled from the [aggregated data] (http://ec2-34-226-216-182.compute-1.amazonaws.com:3000/):
+The following values would be pulled from the [aggregated data](http://ec2-34-226-216-182.compute-1.amazonaws.com:3000):
 * date: supplies month and day on x axis
 * fridgeclosed_hallsensor: supplies height of bars on Hall sensor page
 * fridgeclosed_fsrsensor: supplies height of bars on FSR sensor page
