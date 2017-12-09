@@ -3,7 +3,7 @@
 This project is a visualization of all Alcoholics Anonymous meetings taking place in Manhattan at any point between the hour that the request is made and 4am the following morning.
 The justification for this time period is that someone seeking a meeting may want to know about all meetings occurring that day or late at night.
 
-## The code is broken into four parts:
+### The code is broken into four parts:
 * part1.js: Parse data that had previously been scraped from the Alcoholics Anonymous website and create a separate object for each individual meeting.
  This generated the file addresses.json, which was read into part2.js.
 * part2.js: Use Google API to attach latitude and longitude coordinates to each object.
@@ -11,7 +11,7 @@ The justification for this time period is that someone seeking a meeting may wan
 * part3.js: Insert all 1206 individual meetings into a Mongo database collection.
 * part4.s: Code to receive user requests, aggregate meetings based on day and time of request, and return map of relevant meetings.
 
-The files part1.js and part2.js were run in Cloud9. The files part3.js and part4.js and the two files of html code (html1.txt andhtml2.txt) are in EC2.
+The files part1.js and part2.js were run in Cloud9. The file part3.js to insert the collection was run on EC2. The code in part4.js was combined with the code in part3.js of final assignment 2 to make combined.js, which is on EC2 with the two files of html code (html1.txt andhtml2.txt).
 
 ### Screen capture on Friday, December 8th, at 7:12PM
 ![preview.png](preview.png)
