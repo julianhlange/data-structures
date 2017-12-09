@@ -34,14 +34,14 @@ The file part1.ino was flashed from the Particle App interface to the device. Th
 ### Documentation for how sensor data connect to visual representation
 Given the sensor data in hand, I am using fridge closings as a proxy for "fridge opening" events.
 The PDF shows three layouts:
-* 1. LANDING page
-* 2. SENSOR 1 page: Bar chart of data collected with the Hall sensor
-* 3. SENSOR 2 page: Bar chart of data collected with the FSR sensor
+* LANDING page
+* SENSOR 1 page: Bar chart of data collected with the Hall sensor
+* SENSOR 2 page: Bar chart of data collected with the FSR sensor
 
 The DEMO button on the Landing page would take the uer to the SENSOR 1 page.
 The 30 most recent days (i.e., the 30 last entries) would show in the bar charts. The user would be able to switch between the SENSOR 1 and SENSOR 2 pages by clicking at the top right.
 
-The following values would be pulled from the data at http://ec2-34-226-216-182.compute-1.amazonaws.com:3000/
+The following values would be pulled from the [aggregated data] (http://ec2-34-226-216-182.compute-1.amazonaws.com:3000/):
 * date: supplies month and day on x axis
 * fridgeclosed_hallsensor: supplies height of bars on Hall sensor page
 * fridgeclosed_fsrsensor: supplies height of bars on FSR sensor page
