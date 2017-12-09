@@ -1,21 +1,12 @@
-// part 01: use code from week0506 assignment part1 and loop through all 10 files
-// code is written to be read after cd into final01-assignment folder
-
-
 var fs = require('fs');
 var cheerio = require('cheerio');
-
-///////////////////////////////////////////////////////
 
 var outputMeetings = [];
 
 var filenumber = ['m01','m02','m03', 'm04', 'm05', 'm06', 'm07', 'm08', 'm09', 'm10'];
-// var filenumber = ['m04'];    // 04 is the one I have been working with
-// var filenumber = ['m09'];    // 09 is useful for testing because only four meetings
 
 for (var i = 0; i < filenumber.length; i++) {
   var filename = '../week01-assignment/' + filenumber[i] + '.txt';
-  // console.log('************' + filename + '************'); // to see filenames being loaded
   var content = fs.readFileSync(filename);
   var $ = cheerio.load(content);
 
@@ -28,7 +19,6 @@ for (var i = 0; i < filenumber.length; i++) {
       var objectMeetings = new Object;
 
       var meetingInfo = $(meetingAllInfo[j]).text().trim();
-      // console.log(meetingInfo);
       
       // name of meeting
       objectMeetings.name = $(elem).find('td').eq(0).find('b').contents().filter(function() {
@@ -43,18 +33,21 @@ for (var i = 0; i < filenumber.length; i++) {
       // Google-formatted address
       objectMeetings.address = $(elem).find('td').eq(0).contents().filter(function() {
         return this.nodeType == 3;
-      }).eq(2).text().trim().split(',')[0].split('Rm')[0].split(' -')[0].split(' \(')[0].replace('St.', 'Street').replace('W.', 'West').replace('St ', 'Street').replace('STREET', 'Street').replace('Street ', 'Street').replace('189th Street& Bennett Avenue', '189th Street & Bennett Avenue') + ', New York, NY';
+      }).eq(2).text().trim().split(',')[0].split('Rm')[0].split(' -')[0].split(' \(')[0].replace('St.', 'Street').replace('W.', 'West').replace('St ', 'Street').replace('STREET', 'Street')
+      // edit two troublemakers
+      .replace('189th Street & Bennett Avenue', '178 Bennett Avenue')
+      .replace('Central Park West & 76th Street', 'West 76th Street & Central Park West')
+      + ', New York, NY';
 
       // complete address with room and floor info
       objectMeetings.detail = $(elem).find('td').eq(0).contents().filter(function() {
         return this.nodeType == 3;
-      }).eq(2).text().trim().slice(0, -1).replace('St.', 'Street').replace('W.', 'West').replace('St ', 'Street').replace('189th Street& Bennett Avenue', '189th Street & Bennett Avenue');
+      }).eq(2).text().trim().slice(0, -1).replace('St.', 'Street').replace('W.', 'West').replace('St ', 'Street')
 
       // directions information
       objectMeetings.directions = $(elem).find('td').eq(0).contents().filter(function() {
           return this.nodeType == 3;
         }).eq(3).text().trim()
-        // .split('Avenues')[0].split('Streets')[0].split(')')[0]
         .replace('Between', 'between').replace('Betw.', 'between').replace('Betw', 'between').replace('Btw.', 'between')
         .replace('street', 'Street').replace('Aves', 'Avenues').replace('Avenues.', 'Avenues').replace('avenue', 'Avenue').replace('Avenuess', 'Avenues')
         .replace('Off', 'off').replace('@', 'at').replace('at28th', 'at 28th').replace('Corner', 'corner').replace('Enter', 'enter')
@@ -72,6 +65,16 @@ for (var i = 0; i < filenumber.length; i++) {
       objectMeetings.endHour = parseInt(endHour);
       objectMeetings.endMinute = meetingInfo.split(':')[2].slice(0, 2);
       objectMeetings.endAMPM = meetingInfo.split(':')[2].slice(3, 5);
+      if (objectMeetings.startAMPM == 'AM' && objectMeetings.startHour==12) {
+        objectMeetings.startHourMil = 0
+      }
+      else if (objectMeetings.startAMPM == 'AM' && objectMeetings.startHour<12) {
+        objectMeetings.startHourMil = objectMeetings.startHour
+      }
+      else if (objectMeetings.startAMPM == 'PM' && objectMeetings.startHour==12) {
+        objectMeetings.startHourMil = 12
+      }
+      else { objectMeetings.startHourMil = objectMeetings.startHour + 12 }
 
       // meeting type
       var typeCount = meetingInfo.split('Meeting Type').length - 1;
@@ -109,11 +112,10 @@ for (var i = 0; i < filenumber.length; i++) {
       outputMeetings.push(objectMeetings);
     };
   });
-  console.log(outputMeetings);
 };
 
 require('fs').writeFile(
-    'addressarraywithoutlatLongv2.json',
+    'addresses.json',
     JSON.stringify(outputMeetings),
     function (err) {
         if (err) {
@@ -121,5 +123,3 @@ require('fs').writeFile(
         }
     }
 );
-
-// then push folder to github to make addressarraywithoutlatLongv2.json available for next part
